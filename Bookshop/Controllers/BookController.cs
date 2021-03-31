@@ -13,7 +13,6 @@ namespace Bookshop.Controllers
     {
         MenuController menuController = new MenuController();
         HomeController homeController = new HomeController();
-        WebbShopAPI api = new WebbShopAPI();
         Layout layout = new Layout();
         public void Index()
         {
@@ -25,10 +24,16 @@ namespace Bookshop.Controllers
 
             switch (option)
             {
-                case 0: // Search
+                case 0: // Categories
+                    Categories();
+                    break;
+                case 1: // Available books
+                    
+                    break;
+                case 2: // Search
                     Search();
                     break;
-                case 1: // Home
+                case 3: // Home
                     homeController.Index();
                     break;
                 default:
@@ -59,18 +64,20 @@ namespace Bookshop.Controllers
 
             userInput = Views.Book.Search.UseSearchBar();
 
-            List<Webbutik.Models.Book> books = api.GetBooks(userInput).Distinct().ToList();
-            List<Webbutik.Models.Book> author = api.GetAuthors(userInput).Distinct().ToList();
-            List<Webbutik.Models.BookCategory> categoryKeyword = api.GetCategories(userInput)
-                .Distinct().ToList();
+            List<Webbutik.Models.Book> books = GlobalVariables.Api.GetBooks(userInput).Distinct()
+                .ToList();
+            List<Webbutik.Models.Book> author = GlobalVariables.Api.GetAuthors(userInput).Distinct()
+                .ToList();
+            List<Webbutik.Models.BookCategory> categoryKeyword = GlobalVariables.Api
+                .GetCategories(userInput).Distinct().ToList();
 
             List<Webbutik.Models.Book> categories = new List<Webbutik.Models.Book>();
 
 
             for (int i = 0; i < categoryKeyword.Count; i++)
             {
-                categories = categories.Union(api.GetCategory(categoryKeyword[i].Id), comparer)
-                    .ToList();
+                categories = categories.Union(GlobalVariables.Api.GetCategory(
+                    categoryKeyword[i].Id), comparer).ToList();
             }
 
             List<Webbutik.Models.Book> filteredSearch = books;
@@ -108,7 +115,7 @@ namespace Bookshop.Controllers
             switch (option)
             {
                 case 0: // BuyBook
-                    buyBook();
+                    BuyBook();
                     break;
                 case 1: // Search
                     Search();
@@ -118,7 +125,7 @@ namespace Bookshop.Controllers
             }
         }
 
-        public void buyBook()
+        public void BuyBook()
         {
             layout.ClearMainContent();
 
@@ -130,7 +137,7 @@ namespace Bookshop.Controllers
 
                 if (option == 0)
                 {
-                    api.BuyBook(GlobalVariables.User.Id, GlobalVariables.BookId);
+                    GlobalVariables.Api.BuyBook(GlobalVariables.User.Id, GlobalVariables.BookId);
                 }
                 else
                 {
@@ -142,6 +149,33 @@ namespace Bookshop.Controllers
                 Messages.NotLoggedIn();
                 homeController.Login();
             }
+        }
+
+        public void Categories()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
+            Views.Book.ListCategories.ListAllCategories(categories);
+            int option = menuController.Menu(Views.Book.ListCategories.MenuOptions);
+            
+            switch (option)
+            {
+                case 0: // Available books
+
+                    break;
+                case 1: // Search
+                    Search();
+                    break;
+                case 2: // Book Index
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MainContentMenu(categories);
         }
     }
 }

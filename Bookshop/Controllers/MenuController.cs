@@ -124,5 +124,46 @@ namespace Bookshop.Controllers
 
             return id;
         }
+
+        public int MainContentMenu(List<Webbutik.Models.BookCategory> options)
+        {
+            int selectedOption = 0;
+            int id = 0;
+
+            ConsoleKeyInfo pressedKey;
+
+            do
+            {
+                Console.CursorTop = 9;
+
+                menu.PrintCategoryList(options, selectedOption);
+                id = options[selectedOption].Id;
+
+                pressedKey = Console.ReadKey();
+
+                switch (pressedKey.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        selectedOption++;
+
+                        if (selectedOption > options.Count - 1)
+                        {
+                            selectedOption = 0;
+                        }
+                        break;
+
+                    case ConsoleKey.UpArrow:
+                        selectedOption--;
+
+                        if (selectedOption < 0)
+                        {
+                            selectedOption = options.Count - 1;
+                        }
+                        break;
+                }
+            } while (pressedKey.Key != ConsoleKey.Enter);
+
+            return id;
+        }
     }
 }

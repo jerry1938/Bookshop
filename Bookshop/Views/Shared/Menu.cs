@@ -101,5 +101,26 @@ namespace Bookshop.Views.Shared
                 Console.WriteLine($"{bookOptions[i].Price} kr");
             }
         }
+
+        public void PrintCategoryList(List<Webbutik.Models.BookCategory> categories, 
+            int selectedOption)
+        {
+            char prefix;
+
+            for (int i = 0; i < categories.Count; i++)
+            {
+                Console.CursorLeft = 25;
+
+                if (i == selectedOption)
+                {
+                    prefix = '>';
+                }
+                else
+                {
+                    prefix = ' ';
+                }
+                Console.WriteLine($"{prefix} {categories[i].Name}");
+            }
+        }
     }
 }

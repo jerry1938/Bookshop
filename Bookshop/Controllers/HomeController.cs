@@ -13,7 +13,6 @@ namespace Bookshop.Controllers
     {
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
-        WebbShopAPI api = new WebbShopAPI();
 
         public void Index()
         {
@@ -84,7 +83,7 @@ namespace Bookshop.Controllers
             do
             {
                 userInput = Views.Home.Login.UseLoginPage();
-                GlobalVariables.User = api.Login(userInput[0], userInput[1]);
+                GlobalVariables.User = GlobalVariables.Api.Login(userInput[0], userInput[1]);
                 if (GlobalVariables.User != null)
                 {
                     Messages.SuccessfullLogin();
@@ -127,7 +126,8 @@ namespace Bookshop.Controllers
             do
             {
                 userInput = Views.Home.Register.UseRegisterPage();
-                accountCreated = api.Register(userInput[0], userInput[1], userInput[2]);
+                accountCreated = GlobalVariables.Api.Register(userInput[0], userInput[1], 
+                    userInput[2]);
 
                 if (accountCreated == true)
                 {
@@ -154,7 +154,7 @@ namespace Bookshop.Controllers
             switch (option)
             {
                 case 0: // Logout
-                    api.Logout(GlobalVariables.User.Id);
+                    GlobalVariables.Api.Logout(GlobalVariables.User.Id);
                     GlobalVariables.IsUserLoggedIn = false;
                     Index();
                     break;
