@@ -58,9 +58,7 @@ namespace Bookshop.Controllers
                 case 0: // Categories
                     Categories();
                     break;
-                case 1: // Available books
-                    break;
-                case 2: // Back
+                case 1: // Back
                     Index();
                     break;
                 default:
@@ -98,7 +96,10 @@ namespace Bookshop.Controllers
                 case 0: // Search
                     Search();
                     break;
-                case 1: // Home
+                case 1: // Categories
+                    Categories();
+                    break;
+                case 2: // Home
                     Index();
                     break;
                 default:
@@ -167,13 +168,10 @@ namespace Bookshop.Controllers
             
             switch (option)
             {
-                case 0: // Available books
-
-                    break;
-                case 1: // Search
+                case 0: // Search
                     Search();
                     break;
-                case 2: // Book Index
+                case 1: // Book Index
                     Index();
                     break;
                 default:
@@ -184,7 +182,7 @@ namespace Bookshop.Controllers
 
             layout.ClearMainContent();
             GlobalVariables.BookId = menuController.MainContentMenu(GlobalVariables.Api
-                .GetCategory(option));
+                .GetAvailableBooks(option));
             BookInfo();
         }
     }
