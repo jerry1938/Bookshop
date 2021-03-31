@@ -55,7 +55,12 @@ namespace Bookshop.Controllers
 
             switch (option)
             {
-                case 0: // Back
+                case 0: // Categories
+                    Categories();
+                    break;
+                case 1: // Available books
+                    break;
+                case 2: // Back
                     Index();
                     break;
                 default:
@@ -176,6 +181,11 @@ namespace Bookshop.Controllers
             }
 
             option = menuController.MainContentMenu(categories);
+
+            layout.ClearMainContent();
+            GlobalVariables.BookId = menuController.MainContentMenu(GlobalVariables.Api
+                .GetCategory(option));
+            BookInfo();
         }
     }
 }
