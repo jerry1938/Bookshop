@@ -10,8 +10,10 @@ namespace Bookshop.Views.Home
     {
         public static void ConfirmLogout()
         {
-            Console.SetCursorPosition(45, 13);
+            Console.SetCursorPosition(45, 15);
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Are you sure you want to Logout?");
+            Console.ResetColor();
         }
     }
 }
