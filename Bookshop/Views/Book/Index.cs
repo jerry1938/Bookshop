@@ -10,8 +10,8 @@ namespace Bookshop.Views.Book
     public static class Index
     {
         private static WebbShopAPI api = new WebbShopAPI();
-        public static List<string> MenuOptions = new List<string>() { "Categories", 
-            "Available books", "Search", "Back" };
+        public static List<string> MenuOptions = new List<string>() { "Categories", "Search", 
+            "Back" };
 
         public static void PrintBooks()
         {

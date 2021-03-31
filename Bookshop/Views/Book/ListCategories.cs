@@ -9,8 +9,7 @@ namespace Bookshop.Views.Book
 {
     public static class ListCategories
     {
-        public static List<string> MenuOptions = new List<string>() { "Available books", "Search", 
-            "Back" };
+        public static List<string> MenuOptions = new List<string>() { "Search", "Back" };
 
         public static void ListAllCategories(List<Webbutik.Models.BookCategory> categories)
         {

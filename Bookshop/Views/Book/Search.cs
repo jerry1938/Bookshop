@@ -11,8 +11,7 @@ namespace Bookshop.Views.Book
     public static class Search
     {
         private static WebbShopAPI api = new WebbShopAPI();
-        public static List<string> MenuOptions = new List<string>() { "Categories", 
-            "Available books", "Back" };
+        public static List<string> MenuOptions = new List<string>() { "Categories", "Back" };
 
         public static void PrintSearchBar()
         {
