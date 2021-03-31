@@ -16,6 +16,11 @@ namespace Bookshop.Controllers
         Layout layout = new Layout();
         public void Index()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
@@ -28,7 +33,7 @@ namespace Bookshop.Controllers
                     Categories();
                     break;
                 case 1: // Available books
-                    
+
                     break;
                 case 2: // Search
                     Search();
@@ -45,6 +50,11 @@ namespace Bookshop.Controllers
         {
             string userInput;
             BookComparer comparer = new BookComparer();
+
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
 
             layout.ClearMainContent();
             layout.ClearMenu();
@@ -113,6 +123,11 @@ namespace Bookshop.Controllers
 
         public void BookInfo()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMenu();
 
             Views.Book.BookInfo.PrintBookInfo(GlobalVariables.BookId);
@@ -133,6 +148,7 @@ namespace Bookshop.Controllers
 
         public void BuyBook()
         {
+            GlobalVariables.Api.Ping(GlobalVariables.User.Id);
             layout.ClearMainContent();
 
             if (GlobalVariables.User.Id > 0)
@@ -159,13 +175,18 @@ namespace Bookshop.Controllers
 
         public void Categories()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
             int option = menuController.Menu(Views.Book.ListCategories.MenuOptions);
-            
+
             switch (option)
             {
                 case 0: // Search
