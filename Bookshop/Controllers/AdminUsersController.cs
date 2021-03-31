@@ -24,6 +24,7 @@ namespace Bookshop.Controllers
                     AddUser();
                     break;
                 case 1: // List users
+                    ListUsers();
                     break;
                 case 2: // Find user                    
                     break;
@@ -57,6 +58,7 @@ namespace Bookshop.Controllers
             switch (option)
             {
                 case 0: // List users
+                    ListUsers();
                     break;
                 case 1: // Find user
                     break;
@@ -95,15 +97,50 @@ namespace Bookshop.Controllers
 
                     if (isCreated == true)
                     {
+                        layout.ClearMainContent();
                         Views.AdminUsers.AddUser.UserSuccessfullyCreated();
                     }
                     else
                     {
+                        layout.ClearMainContent();
                         Views.AdminUsers.AddUser.UserDoesAlreadyExist();
                     }
                     Index();
                     break;
                 case 1: // Index
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void ListUsers()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            List<Webbutik.Models.User> listOfUsers = GlobalVariables.Api.ListUsers(
+                GlobalVariables.User.Id);
+            Views.AdminUsers.ListUsers.ListAllUsers(listOfUsers);
+            
+            int option = menuController.Menu(Views.AdminUsers.ListUsers.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add user
+                    AddUser();
+                    break;
+                case 1: // Find user
+                    break;
+                case 2: // Activate user
+                    break;
+                case 3: // Inactivate user
+                    break;
+                case 4: // Promot user
+                    break;
+                case 5: // Demote user
+                    break;
+                case 6: // Back
                     Index();
                     break;
                 default:
