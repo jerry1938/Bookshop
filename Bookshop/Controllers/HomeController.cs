@@ -13,6 +13,7 @@ namespace Bookshop.Controllers
     {
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
+        AdminHomeController adminHC = new AdminHomeController();
 
         public void Index()
         {
@@ -88,7 +89,15 @@ namespace Bookshop.Controllers
                 {
                     Messages.SuccessfullLogin();
                     GlobalVariables.IsUserLoggedIn = true;
-                    Index();
+
+                    if (GlobalVariables.User.IsAdmin == true)
+                    {
+                        adminHC.Index();
+                    }
+                    else
+                    {
+                        Index();
+                    }
                 }
                 else
                 {
@@ -126,7 +135,7 @@ namespace Bookshop.Controllers
             do
             {
                 userInput = Views.Home.Register.UseRegisterPage();
-                accountCreated = GlobalVariables.Api.Register(userInput[0], userInput[1], 
+                accountCreated = GlobalVariables.Api.Register(userInput[0], userInput[1],
                     userInput[2]);
 
                 if (accountCreated == true)
