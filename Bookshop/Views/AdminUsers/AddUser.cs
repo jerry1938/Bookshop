@@ -44,7 +44,7 @@ namespace Bookshop.Views.AdminUsers
 
         public static void UserDoesAlreadyExist()
         {
-            Console.SetCursorPosition(25, 18);
+            Console.SetCursorPosition(49, 18);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("The user does already exist.");
             Thread.Sleep(3000);
@@ -53,7 +53,7 @@ namespace Bookshop.Views.AdminUsers
 
         public static void UserSuccessfullyCreated()
         {
-            Console.SetCursorPosition(25, 18);
+            Console.SetCursorPosition(47, 18);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The user is successfully created.");
             Thread.Sleep(3000);
