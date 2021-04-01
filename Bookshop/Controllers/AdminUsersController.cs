@@ -146,6 +146,40 @@ namespace Bookshop.Controllers
                 default:
                     break;
             }
+
+            option = menuController.MainContentMenu(listOfUsers);
+            UserInfo(option, listOfUsers);
+        }
+
+        public void UserInfo(int userId, List<Webbutik.Models.User> users)
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            Views.AdminUsers.UserInfo.PrintUserInfo(userId, users);
+
+            int option = menuController.Menu(Views.AdminUsers.UserInfo.MenuOptions);
+            switch (option)
+            {
+                case 0: // Activate user
+                    break;
+                case 1: // Inactivate user
+                    break;
+                case 2: // Promote user
+                    break;
+                case 3: // Demote user
+                    break;
+                case 4: // Back
+                    ListUsers();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void FindUser()
+        {
+
         }
     }
 }
