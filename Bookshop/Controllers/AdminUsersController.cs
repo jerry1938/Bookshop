@@ -144,6 +144,7 @@ namespace Bookshop.Controllers
                     ActivateUser(userId);
                     break;
                 case 1: // Inactivate user
+                    InactivateUser(userId);
                     break;
                 case 2: // Promote user
                     break;
@@ -229,6 +230,7 @@ namespace Bookshop.Controllers
                     FindUser();
                     break;
                 case 3: // Inactivate user
+                    InactivateUser(userId);
                     break;
                 case 4: // Promote user
                     break;
@@ -256,7 +258,58 @@ namespace Bookshop.Controllers
                 default:
                     break;
             }
+        }
 
+        public void InactivateUser(int userId)
+        {
+            Menu menu = new Menu();
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            Views.AdminUsers.InactivateUser.Confirm();
+            menu.PrintMessageBox(0);
+
+            int option = menuController.Menu(Views.AdminUsers.InactivateUser.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add user
+                    AddUser();
+                    break;
+                case 1: // List users
+                    ListUsers();
+                    break;
+                case 2: // Find user
+                    FindUser();
+                    break;
+                case 3: // Activate user
+                    ActivateUser(userId);
+                    break;
+                case 4: // Promote user
+                    break;
+                case 5: // Demote user
+                    break;
+                case 6: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MessageWindow();
+            switch (option)
+            {
+                case 0:
+                    bool isInactive = GlobalVariables.Api.InactivateUser(GlobalVariables.User.Id, 
+                        userId);
+                    Views.AdminUsers.InactivateUser.IsUserInactive(isInactive);
+                    Index();
+                    break;
+                case 1:
+                    Index();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
