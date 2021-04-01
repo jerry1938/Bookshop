@@ -25,6 +25,8 @@ namespace Bookshop.Controllers
                     adminUsersController.Index();
                     break;
                 case 1: // Books
+                    AdminBooksController adminBooksController = new AdminBooksController();
+                    adminBooksController.Index();
                     break;
                 case 2: // Statistics
                     break;
