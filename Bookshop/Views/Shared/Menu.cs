@@ -122,5 +122,25 @@ namespace Bookshop.Views.Shared
                 Console.WriteLine($"{prefix} {categories[i].Name}");
             }
         }
+
+        public void PrintUserList(List<Webbutik.Models.User> users, int selectedOption)
+        {
+            char prefix;
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                Console.CursorLeft = 25;
+
+                if (i == selectedOption)
+                {
+                    prefix = '>';
+                }
+                else
+                {
+                    prefix = ' ';
+                }
+                Console.WriteLine($"{prefix} {users[i].Name}");
+            }
+        }
     }
 }
