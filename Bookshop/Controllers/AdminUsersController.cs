@@ -29,15 +29,7 @@ namespace Bookshop.Controllers
                 case 2: // Find user                    
                     FindUser();
                     break;
-                case 3: // Activate user
-                    break;
-                case 4: // Inactivate User
-                    break;
-                case 5: // Promote user
-                    break;
-                case 6: // Demote user
-                    break;
-                case 7: // Home
+                case 3:  // Home
                     AdminHomeController adminHomeController = new AdminHomeController();
                     adminHomeController.Index();
                     break;
@@ -64,15 +56,7 @@ namespace Bookshop.Controllers
                 case 1: // Find user
                     FindUser();
                     break;
-                case 2: // Activate user
-                    break;
-                case 3: // Inactivate user
-                    break;
-                case 4: // Promote user
-                    break;
-                case 5: // Demote user
-                    break;
-                case 6: // Back
+                case 2: // Back
                     Index();
                     break;
                 default:
@@ -125,7 +109,7 @@ namespace Bookshop.Controllers
             List<Webbutik.Models.User> listOfUsers = GlobalVariables.Api.ListUsers(
                 GlobalVariables.User.Id);
             Views.AdminUsers.ListUsers.ListAllUsers(listOfUsers);
-            
+
             int option = menuController.Menu(Views.AdminUsers.ListUsers.MenuOptions);
             switch (option)
             {
@@ -135,15 +119,7 @@ namespace Bookshop.Controllers
                 case 1: // Find user
                     FindUser();
                     break;
-                case 2: // Activate user
-                    break;
-                case 3: // Inactivate user
-                    break;
-                case 4: // Promot user
-                    break;
-                case 5: // Demote user
-                    break;
-                case 6: // Back
+                case 2: // Back
                     Index();
                     break;
                 default:
@@ -165,6 +141,7 @@ namespace Bookshop.Controllers
             switch (option)
             {
                 case 0: // Activate user
+                    ActivateUser(userId);
                     break;
                 case 1: // Inactivate user
                     break;
@@ -196,15 +173,7 @@ namespace Bookshop.Controllers
                 case 1: // List users
                     ListUsers();
                     break;
-                case 2: // Activate user
-                    break;
-                case 3: // Inactivate user
-                    break;
-                case 4: // promote user
-                    break;
-                case 5: // Demote user
-                    break;
-                case 6: // Back
+                case 2: // Back
                     Index();
                     break;
                 default:
@@ -226,11 +195,42 @@ namespace Bookshop.Controllers
                 case 1: // List users
                     ListUsers();
                     break;
-                case 2: // Activate user
+                case 2: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MainContentMenu(users);
+            UserInfo(option, users);
+        }
+
+        public void ActivateUser(int userId)
+        {
+            Menu menu = new Menu();
+
+            layout.ClearMainContent();
+            layout.ClearMenu();
+            
+            Views.AdminUsers.ActivateUser.Confirm();
+            menu.PrintMessageBox(0);
+
+            int option = menuController.Menu(Views.AdminUsers.ActivateUser.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add user
+                    AddUser();
+                    break;
+                case 1: // List users
+                    ListUsers();
+                    break;
+                case 2: // Find user
+                    FindUser();
                     break;
                 case 3: // Inactivate user
                     break;
-                case 4: // promote user
+                case 4: // Promote user
                     break;
                 case 5: // Demote user
                     break;
@@ -241,8 +241,22 @@ namespace Bookshop.Controllers
                     break;
             }
 
-            option = menuController.MainContentMenu(users);
-            UserInfo(option, users);
+            option = menuController.MessageWindow();
+            switch (option)
+            {
+                case 0:
+                    bool IsActive = GlobalVariables.Api.ActivateUser(GlobalVariables.User.Id, 
+                        userId);
+                    Views.AdminUsers.ActivateUser.IsUserActive(IsActive);
+                    Index();
+                    break;
+                case 1:
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 }
