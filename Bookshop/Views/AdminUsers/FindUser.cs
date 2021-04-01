@@ -9,8 +9,8 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class FindUser
     {
-        public static List<string> MenuOptions = new List<string>() { "Add user", "List users",
-            "Activate user", "Inactivate user", "Promote user", "Demote user", "Back"};
+        public static List<string> MenuOptions = new List<string>() { "Add user", "List users", 
+            "Back"};
 
         public static void PrintFindUserPage()
         {

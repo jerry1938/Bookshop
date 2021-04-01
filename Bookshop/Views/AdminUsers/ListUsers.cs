@@ -8,8 +8,8 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class ListUsers
     {
-        public static List<string> MenuOptions = new List<string>() { "Add user", "Find user",
-            "Activate user", "Inactivate user", "Promote user", "Demote user", "Back"};
+        public static List<string> MenuOptions = new List<string>() { "Add user", "Find user", 
+            "Back"};
 
         public static void ListAllUsers(List<Webbutik.Models.User> listOfUsers)
         {
