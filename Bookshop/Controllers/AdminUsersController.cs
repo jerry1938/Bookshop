@@ -27,6 +27,7 @@ namespace Bookshop.Controllers
                     ListUsers();
                     break;
                 case 2: // Find user                    
+                    FindUser();
                     break;
                 case 3: // Activate user
                     break;
@@ -61,6 +62,7 @@ namespace Bookshop.Controllers
                     ListUsers();
                     break;
                 case 1: // Find user
+                    FindUser();
                     break;
                 case 2: // Activate user
                     break;
@@ -131,6 +133,7 @@ namespace Bookshop.Controllers
                     AddUser();
                     break;
                 case 1: // Find user
+                    FindUser();
                     break;
                 case 2: // Activate user
                     break;
@@ -179,7 +182,67 @@ namespace Bookshop.Controllers
 
         public void FindUser()
         {
+            layout.ClearMainContent();
+            layout.ClearMenu();
 
+            Views.AdminUsers.FindUser.PrintFindUserPage();
+
+            int option = menuController.Menu(Views.AdminUsers.FindUser.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add user
+                    AddUser();
+                    break;
+                case 1: // List users
+                    ListUsers();
+                    break;
+                case 2: // Activate user
+                    break;
+                case 3: // Inactivate user
+                    break;
+                case 4: // promote user
+                    break;
+                case 5: // Demote user
+                    break;
+                case 6: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            string userInput = Views.AdminUsers.FindUser.UseFindUserPage();
+            List<Webbutik.Models.User> users = GlobalVariables.Api.FindUser(
+                GlobalVariables.User.Id, userInput);
+
+            Views.AdminUsers.FindUser.PrintResult(users);
+
+            option = menuController.Menu(Views.AdminUsers.FindUser.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add user
+                    AddUser();
+                    break;
+                case 1: // List users
+                    ListUsers();
+                    break;
+                case 2: // Activate user
+                    break;
+                case 3: // Inactivate user
+                    break;
+                case 4: // promote user
+                    break;
+                case 5: // Demote user
+                    break;
+                case 6: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MainContentMenu(users);
+            UserInfo(option, users);
         }
     }
 }
