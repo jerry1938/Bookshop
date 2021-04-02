@@ -32,7 +32,7 @@ namespace Bookshop.Controllers
                         BookController bookController = new BookController();
                         bookController.Index();
                         break;
-                    default:
+                    default: // Exist
                         break;
                 }
             }
@@ -52,7 +52,7 @@ namespace Bookshop.Controllers
                         BookController bookController = new BookController();
                         bookController.Index();
                         break;
-                    default:
+                    default: // Exist
                         break;
                 }
             }

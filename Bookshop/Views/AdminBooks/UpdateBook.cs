@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Bookshop.Views.AdminBooks
 {
@@ -65,6 +66,7 @@ namespace Bookshop.Views.AdminBooks
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The book has successfully been updated");
             Console.ResetColor();
+            Thread.Sleep(3000);
         }
 
         public static void Failure()
@@ -73,6 +75,7 @@ namespace Bookshop.Views.AdminBooks
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("The book could not be updated.");
             Console.ResetColor();
+            Thread.Sleep(3000);
         }
     }
 }

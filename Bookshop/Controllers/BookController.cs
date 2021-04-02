@@ -157,6 +157,7 @@ namespace Bookshop.Controllers
                 if (option == 0)
                 {
                     GlobalVariables.Api.BuyBook(GlobalVariables.User.Id, GlobalVariables.BookId);
+                    Index();
                 }
                 else
                 {
