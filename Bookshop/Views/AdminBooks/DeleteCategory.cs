@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace Bookshop.Views.AdminBooks
 {
-    public static class RemoveBook
+    public static class DeleteCategory
     {
-        public static List<string> MenuOptions = new List<string>() { "Change amount",
-            "Update book", "Change category", "Back"};
+        public static List<string> MenuOptions = new List<string>() { "Add book", "Edit book",
+            "Add category", "Update category", "Back"};
 
         public static void Confirm()
         {
-            Console.SetCursorPosition(42, 15);
+            Console.SetCursorPosition(40, 15);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Are you sure you want to remove this book?");
+            Console.WriteLine("Are you sure you want to remove this category?");
             Console.ResetColor();
         }
 
         public static void Success()
         {
-            Console.SetCursorPosition(44, 18);
+            Console.SetCursorPosition(42, 18);
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("The book has been successfully removed");
+            Console.WriteLine("The category has been successfully removed");
             Console.ResetColor();
             Thread.Sleep(3000);
         }
 
         public static void Failure()
         {
-            Console.SetCursorPosition(49, 18);
+            Console.SetCursorPosition(43, 18);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The book could not be removed");
+            Console.WriteLine("The category is used by one or more books");
             Console.ResetColor();
             Thread.Sleep(3000);
         }

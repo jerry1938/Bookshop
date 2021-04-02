@@ -28,10 +28,13 @@ namespace Bookshop.Controllers
                     EditBook();
                     break;
                 case 2: // Add category
+                    AddCategory();
                     break;
                 case 3: // Update category
+                    UpdateCategory();
                     break;
                 case 4: // Delete category
+                    DeleteCategory();
                     break;
                 case 5: // Back
                     AdminHomeController adminHomeController = new AdminHomeController();
@@ -56,10 +59,13 @@ namespace Bookshop.Controllers
                     EditBook();
                     break;
                 case 1: // Add category
+                    AddCategory();
                     break;
                 case 2: // Update category
+                    UpdateCategory();
                     break;
                 case 3: // Delete category
+                    DeleteCategory();
                     break;
                 case 4: // Back
                     Index();
@@ -154,7 +160,10 @@ namespace Bookshop.Controllers
                 case 2: // Remove book
                     RemoveBook();
                     break;
-                case 3: // Back
+                case 3: // Change category
+                    ChangeCategory();
+                    break;
+                case 4: // Back
                     EditBook();
                     break;
                 default:
@@ -178,7 +187,10 @@ namespace Bookshop.Controllers
                 case 1: // Remove book
                     RemoveBook();
                     break;
-                case 2: // Back
+                case 2: // Change category
+                    ChangeCategory();
+                    break;
+                case 3: // Back
                     EditBook();
                     break;
                 default:
@@ -208,7 +220,10 @@ namespace Bookshop.Controllers
                 case 1: // Remove book
                     RemoveBook();
                     break;
-                case 2: // Back
+                case 2: // Change category
+                    ChangeCategory();
+                    break;
+                case 3: // Back
                     EditBook();
                     break;
                 default:
@@ -253,7 +268,10 @@ namespace Bookshop.Controllers
                 case 1: // Update book
                     UpdateBook();
                     break;
-                case 2: // Back
+                case 2: // Change category
+                    ChangeCategory();
+                    break;
+                case 3: // Back
                     EditBook();
                     break;
                 default:
@@ -274,6 +292,191 @@ namespace Bookshop.Controllers
                     else
                     {
                         Views.AdminBooks.RemoveBook.Failure();
+                    }
+                    Index();
+                    break;
+                case 1:
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void ChangeCategory()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
+            Views.Book.ListCategories.ListAllCategories(categories);
+
+            int option = menuController.Menu(Views.AdminBooks.ChangeCategory.MenuOptions);
+            switch (option)
+            {
+                case 0: // Change amount
+                    ChangeAmount();
+                    break;
+                case 1: // Update book
+                    UpdateBook();
+                    break;
+                case 2: // Remove book
+                    RemoveBook();
+                    break;
+                case 3: // Back
+                    EditBook();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MainContentMenu(categories);
+
+            layout.ClearMainContent();
+            bool isChanged = GlobalVariables.Api.AddBookToCategory(GlobalVariables.User.Id, 
+                GlobalVariables.BookId, option);
+
+            if (isChanged == true)
+            {
+                Views.AdminBooks.ChangeCategory.Success();
+            }
+            Index();
+        }
+
+        public void AddCategory()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            Views.AdminBooks.AddCategory.PrintAddBookPage();
+
+            int option = menuController.Menu(Views.AdminBooks.AddCategory.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add book
+                    AddBook();
+                    break;
+                case 1: // Edit book
+                    EditBook();
+                    break;
+                case 2: // Update category
+                    UpdateCategory();
+                    break;
+                case 3: // Delete category
+                    DeleteCategory();
+                    break;
+                case 4: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            string userInput = Views.AdminBooks.AddCategory.UseAddCategoryPage();
+            bool isAdded = GlobalVariables.Api.AddCategory(GlobalVariables.User.Id, userInput);
+
+            if (isAdded == true)
+            {
+                Views.AdminBooks.AddCategory.Success();
+            }
+            else
+            {
+                Views.AdminBooks.AddCategory.Failure();
+            }
+
+            Index();
+        }
+
+        public void UpdateCategory()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
+            Views.Book.ListCategories.ListAllCategories(categories);
+
+            int option = menuController.Menu(Views.AdminBooks.UpdateCategory.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add book
+                    AddBook();
+                    break;
+                case 1: // Edit book
+                    EditBook();
+                    break;
+                case 2: // Add category
+                    AddCategory();
+                    break;
+                case 3: // Delete category
+                    DeleteCategory();
+                    break;
+                case 4: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            option = menuController.MainContentMenu(categories);
+
+            layout.ClearMainContent();
+            string userInput = Views.AdminBooks.UpdateCategory.UseUpdateCategoryPage();
+            bool isUpdated = GlobalVariables.Api.UpdateCategory(GlobalVariables.User.Id, 
+                option, userInput);
+            if (isUpdated == true)
+            {
+                Views.AdminBooks.UpdateCategory.Success();
+            }
+        }
+
+        public void DeleteCategory()
+        {
+            layout.ClearMainContent();
+            layout.ClearMenu();
+
+            List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
+            Views.Book.ListCategories.ListAllCategories(categories);
+
+            int option = menuController.Menu(Views.AdminBooks.DeleteCategory.MenuOptions);
+            switch (option)
+            {
+                case 0: // Add book
+                    AddBook();
+                    break;
+                case 1: // Edit book
+                    EditBook();
+                    break;
+                case 2: // Add category
+                    AddCategory();
+                    break;
+                case 3: // Update category
+                    UpdateCategory();
+                    break;
+                case 4: // Back
+                    Index();
+                    break;
+                default:
+                    break;
+            }
+
+            int categoryId = menuController.MainContentMenu(categories);
+
+            layout.ClearMainContent();
+            Views.AdminBooks.DeleteCategory.Confirm();
+            option = menuController.MessageWindow();
+            switch (option)
+            {
+                case 0:
+                    bool isDeleted = GlobalVariables.Api.DeleteCategory(
+                        GlobalVariables.User.Id, categoryId);
+
+                    if (isDeleted == true)
+                    {
+                        Views.AdminBooks.DeleteCategory.Success();
+                    }
+                    else
+                    {
+                        Views.AdminBooks.DeleteCategory.Failure();
                     }
                     Index();
                     break;

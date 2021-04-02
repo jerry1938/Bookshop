@@ -10,7 +10,7 @@ namespace Bookshop.Views.AdminBooks
     public static class BookInfo
     {
         public static List<string> MenuOptions = new List<string>() { "Change amount", "Update book",
-            "Remove book", "Back"};
+            "Remove book", "Change category", "Back"};
 
         public static void PrintBookInfo()
         {
