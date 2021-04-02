@@ -32,13 +32,10 @@ namespace Bookshop.Controllers
                 case 0: // Categories
                     Categories();
                     break;
-                case 1: // Available books
-
-                    break;
-                case 2: // Search
+                case 1: // Search
                     Search();
                     break;
-                case 3: // Home
+                case 2: // Home
                     homeController.Index();
                     break;
                 default:
