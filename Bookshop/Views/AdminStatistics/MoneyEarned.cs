@@ -8,9 +8,16 @@ namespace Bookshop.Views.AdminStatistics
 {
     public static class MoneyEarned
     {
-        public static List<string> MenuOptions = new List<string>() { "Sold items", "Best customer",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Sold items", "Best customer",
             "Back"};
 
+        /// <summary>
+        /// Prints the money earned page with the total amount of money earned.
+        /// </summary>
+        /// <param name="moneyEarned"></param>
         public static void PrintMoneyEarnedPage(int moneyEarned)
         {
             Console.SetCursorPosition(25, 9);

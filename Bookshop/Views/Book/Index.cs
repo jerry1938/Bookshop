@@ -10,9 +10,16 @@ namespace Bookshop.Views.Book
     public static class Index
     {
         private static WebbShopAPI api = new WebbShopAPI();
-        public static List<string> MenuOptions = new List<string>() { "Categories", "Search", 
+
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Categories", "Search", 
             "Back" };
 
+        /// <summary>
+        /// Prints the books.
+        /// </summary>
         public static void PrintBooks()
         {
             Console.SetCursorPosition(26, 9);

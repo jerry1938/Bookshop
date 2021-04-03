@@ -1,12 +1,12 @@
-﻿using Bookshop.Controllers;
-using System;
-using System.Collections.Generic;
-
-namespace Bookshop
+﻿namespace Bookshop
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// The Main.
+        /// </summary>
+        /// <param name="args">The args<see cref="string[]"/>.</param>
+        internal static void Main(string[] args)
         {
             StartApp startApp = new StartApp();
             startApp.Start();

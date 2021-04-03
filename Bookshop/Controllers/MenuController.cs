@@ -11,6 +11,12 @@ namespace Bookshop.Controllers
     class MenuController
     {
         Menu menu = new Menu();
+
+        /// <summary>
+        /// Handles the logic for the menu.
+        /// </summary>
+        /// <param name="options">The options for the menu.</param>
+        /// <returns>The selected option.</returns>
         public int Menu(List<string> options)
         {
             int selectedOption = 0;
@@ -57,6 +63,10 @@ namespace Bookshop.Controllers
             return selectedOption;
         }
 
+        /// <summary>
+        /// Handels the logic for the message window.
+        /// </summary>
+        /// <returns>The selected option.</returns>
         public int MessageWindow()
         {
             int selectedOption = 0;
@@ -84,6 +94,11 @@ namespace Bookshop.Controllers
             return selectedOption;
         }
 
+        /// <summary>
+        /// Handles the logic for the main-content menu.
+        /// </summary>
+        /// <param name="options">The options for the menu.</param>
+        /// <returns>The selected option.</returns>
         public int MainContentMenu(List<Webbutik.Models.Book> options)
         {
             int selectedOption = 0;
@@ -125,6 +140,11 @@ namespace Bookshop.Controllers
             return id;
         }
 
+        /// <summary>
+        /// Handles the logic for the main-content menu.
+        /// </summary>
+        /// <param name="options">The options for the menu.</param>
+        /// <returns>The selected option.</returns>
         public int MainContentMenu(List<Webbutik.Models.BookCategory> options)
         {
             int selectedOption = 0;
@@ -166,6 +186,11 @@ namespace Bookshop.Controllers
             return id;
         }
 
+        /// <summary>
+        /// Handles the logic for the main-content menu.
+        /// </summary>
+        /// <param name="options">The options for the menu.</param>
+        /// <returns>The selected option.</returns>
         public int MainContentMenu(List<Webbutik.Models.User> options)
         {
             int selectedOption = 0;

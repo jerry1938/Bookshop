@@ -10,10 +10,18 @@ namespace Bookshop.Views.Book
 {
     public static class BookInfo
     {
-        public static List<string> MenuOptions = new List<string>() { "Buy book", "Back" };
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Buy book", "Back" };
+
         static Layout layout = new Layout();
         static WebbShopAPI api = new WebbShopAPI();
 
+        /// <summary>
+        /// Prints the information of a book.
+        /// </summary>
+        /// <param name="bookId">The id of the book.</param>
         public static void PrintBookInfo(int bookId)
         {
 

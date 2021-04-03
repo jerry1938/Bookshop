@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class ChangeCategory
     {
-        public static List<string> MenuOptions = new List<string>() { "Change amount",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Change amount",
             "Update book", "Remove book", "Back"};
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(35, 18);

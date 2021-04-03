@@ -13,12 +13,17 @@ namespace Bookshop.Controllers
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
 
+        /// <summary>
+        /// Hanles the logic for the index page.
+        /// </summary>
         public void Index()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminStatistics.Index.MenuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.Index.menuOptions);
             switch (option)
             {
                 case 0: // Sold items
@@ -39,15 +44,20 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic of the sold items page.
+        /// </summary>
         public void SoldItems()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             var soldItems = GlobalVariables.Api.SoldItems(GlobalVariables.User.Id);
             Views.AdminStatistics.SoldItems.PrintSoldItems(soldItems);
 
-            int option = menuController.Menu(Views.AdminStatistics.SoldItems.MenuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.SoldItems.menuOptions);
             switch (option)
             {
                 case 0: // Best customer
@@ -64,15 +74,20 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic of the best customer page.
+        /// </summary>
         public void BestCustomer()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             string bestCustomer = GlobalVariables.Api.BestCustomer(GlobalVariables.User.Id);
             Views.AdminStatistics.BestCustomer.PrintBestCustomerPage(bestCustomer);
 
-            int option = menuController.Menu(Views.AdminStatistics.BestCustomer.MenuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.BestCustomer.menuOptions);
             switch (option)
             {
                 case 0: // Sold items
@@ -89,15 +104,20 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the money earned page.
+        /// </summary>
         public void MoneyEarned()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             int moneyEarned = GlobalVariables.Api.MoneyEarned(GlobalVariables.User.Id);
             Views.AdminStatistics.MoneyEarned.PrintMoneyEarnedPage(moneyEarned);
 
-            int option = menuController.Menu(Views.AdminStatistics.MoneyEarned.MenuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.MoneyEarned.menuOptions);
             switch (option)
             {
                 case 0: // Sold items

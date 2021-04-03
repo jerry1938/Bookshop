@@ -9,6 +9,9 @@ using Webbutik.Models;
 
 namespace Bookshop.Helpers
 {
+    /// <summary>
+    /// Global variables for the program.
+    /// </summary>
     public static class GlobalVariables
     {
         public static WebbShopAPI Api = new WebbShopAPI();

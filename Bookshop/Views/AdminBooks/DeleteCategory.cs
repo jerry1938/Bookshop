@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class DeleteCategory
     {
-        public static List<string> MenuOptions = new List<string>() { "Add book", "Edit book",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Add book", "Edit book",
             "Add category", "Update category", "Back"};
 
+        /// <summary>
+        /// Prints the confirm message.
+        /// </summary>
         public static void Confirm()
         {
             Console.SetCursorPosition(40, 15);
@@ -20,6 +26,9 @@ namespace Bookshop.Views.AdminBooks
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(42, 18);
@@ -29,6 +38,9 @@ namespace Bookshop.Views.AdminBooks
             Thread.Sleep(3000);
         }
 
+        /// <summary>
+        /// Prints the failure message.
+        /// </summary>
         public static void Failure()
         {
             Console.SetCursorPosition(43, 18);

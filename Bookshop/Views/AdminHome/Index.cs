@@ -8,7 +8,10 @@ namespace Bookshop.Views.AdminHome
 {
     public static class Index
     {
-        public static List<string> MenuOptions = new List<string>() { "Users", "Books",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Users", "Books",
             "Statistics", "Logout"};
     }
 }

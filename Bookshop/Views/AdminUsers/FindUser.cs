@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class FindUser
     {
-        public static List<string> MenuOptions = new List<string>() { "Add user", "List users", 
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Add user", "List users", 
             "Back"};
 
+        /// <summary>
+        /// Prints the find user page;
+        /// </summary>
         public static void PrintFindUserPage()
         {
             Console.SetCursorPosition(51, 18);
@@ -21,6 +27,10 @@ namespace Bookshop.Views.AdminUsers
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the find user page and lets the user enter a keyword or name for a user.
+        /// </summary>
+        /// <returns>The string with the keyword or user name.</returns>
         public static string UseFindUserPage()
         {
             Console.SetCursorPosition(57, 18);
@@ -33,6 +43,10 @@ namespace Bookshop.Views.AdminUsers
             return userInput;
         }
 
+        /// <summary>
+        /// Prints the result.
+        /// </summary>
+        /// <param name="users"></param>
         public static void PrintResult(List<Webbutik.Models.User> users)
         {
             Layout layout = new Layout();

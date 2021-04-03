@@ -9,6 +9,9 @@ namespace Bookshop.Views.Shared
 {
     public static class Messages
     {
+        /// <summary>
+        /// Prints the successfull login message.
+        /// </summary>
         public static void SuccessfullLogin()
         {
             Console.SetCursorPosition(48, 18);
@@ -18,6 +21,9 @@ namespace Bookshop.Views.Shared
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the login error message.
+        /// </summary>
         public static void LoginError()
         {
             Console.SetCursorPosition(50, 18);
@@ -27,6 +33,9 @@ namespace Bookshop.Views.Shared
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the account successfully created message.
+        /// </summary>
         public static void AccountSuccessfullyCreated()
         {
             Console.SetCursorPosition(55, 18);
@@ -38,6 +47,9 @@ namespace Bookshop.Views.Shared
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the account could not be created message.
+        /// </summary>
         public static void AccountCouldNotBeCreated()
         {
             Console.SetCursorPosition(53, 18);
@@ -49,6 +61,9 @@ namespace Bookshop.Views.Shared
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the logged in message.
+        /// </summary>
         public static void NotLoggedIn()
         {
             Console.SetCursorPosition(52, 18);

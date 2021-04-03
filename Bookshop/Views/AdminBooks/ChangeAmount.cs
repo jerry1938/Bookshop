@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class ChangeAmount
     {
-        public static List<string> MenuOptions = new List<string>() { "Update book",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Update book",
             "Remove book", "Change category", "Back"};
 
+        /// <summary>
+        /// Prints the change amount page.
+        /// </summary>
         public static void PrintChangeAmountPage()
         {
             Console.SetCursorPosition(25, 9);
@@ -21,6 +27,10 @@ namespace Bookshop.Views.AdminBooks
             Console.WriteLine("New amount:");
         }
 
+        /// <summary>
+        /// Prints the change amount page and lets the user enter a new amount.
+        /// </summary>
+        /// <returns></returns>
         public static int UseChangeAmountPage()
         {
             bool isNumeric = false;

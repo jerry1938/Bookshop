@@ -8,9 +8,16 @@ namespace Bookshop.Views.AdminStatistics
 {
     public static class SoldItems
     {
-        public static List<string> MenuOptions = new List<string>() { "Best customer",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Best customer",
             "Money earned", "Back"};
 
+        /// <summary>
+        /// Prints the sold items.
+        /// </summary>
+        /// <param name="soldItems"></param>
         public static void PrintSoldItems(List<Webbutik.Models.SoldBook> soldItems)
         {
 

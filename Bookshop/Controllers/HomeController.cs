@@ -15,6 +15,9 @@ namespace Bookshop.Controllers
         MenuController menuController = new MenuController();
         AdminHomeController adminHC = new AdminHomeController();
 
+        /// <summary>
+        /// The start page of the homecontroller.
+        /// </summary>
         public void Index()
         {
             layout.ClearMainContent();
@@ -22,7 +25,7 @@ namespace Bookshop.Controllers
 
             if (GlobalVariables.IsUserLoggedIn == true)
             {
-                int option = menuController.Menu(Views.Home.Index.MenuOptionsLoggedIn);
+                int option = menuController.Menu(Views.Home.Index.menuOptionsLoggedIn);
                 switch (option)
                 {
                     case 0: // Logout
@@ -38,7 +41,7 @@ namespace Bookshop.Controllers
             }
             else
             {
-                int option = menuController.Menu(Views.Home.Index.MenuOptions);
+                int option = menuController.Menu(Views.Home.Index.menuOptions);
 
                 switch (option)
                 {
@@ -58,6 +61,9 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for logging in and redirect to the relevant index page.
+        /// </summary>
         public void Login()
         {
             layout.ClearMainContent();
@@ -67,7 +73,7 @@ namespace Bookshop.Controllers
 
             Views.Home.Login.PrintLoginPage();
 
-            int option = menuController.Menu(Views.Home.Login.MenuOptions);
+            int option = menuController.Menu(Views.Home.Login.menuOptions);
 
             switch (option)
             {
@@ -108,6 +114,9 @@ namespace Bookshop.Controllers
             } while (GlobalVariables.User == null);
         }
 
+        /// <summary>
+        /// Handles the registration logic.
+        /// </summary>
         public void Register()
         {
             layout.ClearMainContent();
@@ -118,7 +127,7 @@ namespace Bookshop.Controllers
 
             Views.Home.Register.PrintRegisterPage();
 
-            int option = menuController.Menu(Views.Home.Register.MenuOptions);
+            int option = menuController.Menu(Views.Home.Register.menuOptions);
 
             switch (option)
             {
@@ -152,8 +161,12 @@ namespace Bookshop.Controllers
             } while (accountCreated == false);
         }
 
+        /// <summary>
+        /// Hanlde the logout logic.
+        /// </summary>
         public void Logout()
         {
+            PingHelper.CheckPing();
             layout.ClearMainContent();
             layout.ClearMenu();
 

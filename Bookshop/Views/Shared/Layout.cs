@@ -8,6 +8,9 @@ namespace Bookshop.Views.Shared
 {
     class Layout
     {
+        /// <summary>
+        /// Prints the layout for the bookshop.
+        /// </summary>
         public void PrintLayout()
         {
             Console.CursorVisible = false;
@@ -85,6 +88,9 @@ namespace Bookshop.Views.Shared
             Console.WriteLine("┘");
         }
 
+        /// <summary>
+        /// Clears the menu.
+        /// </summary>
         public void ClearMenu()
         {
             Console.SetCursorPosition(3, 9);
@@ -99,6 +105,9 @@ namespace Bookshop.Views.Shared
             }
         }
 
+        /// <summary>
+        /// Clears the main content.
+        /// </summary>
         public void ClearMainContent()
         {
             Console.SetCursorPosition(25, 9);

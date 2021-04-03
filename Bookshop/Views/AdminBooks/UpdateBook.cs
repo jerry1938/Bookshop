@@ -10,9 +10,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class UpdateBook
     {
-        public static List<string> MenuOptions = new List<string>() { "Change amount",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Change amount",
             "Remove book", "Change category", "Back"};
 
+        /// <summary>
+        /// Prints the update book page.
+        /// </summary>
         public static void PrintUpdateBookPage()
         {
             Console.SetCursorPosition(25, 9);
@@ -34,6 +40,10 @@ namespace Bookshop.Views.AdminBooks
             Console.WriteLine("New price: ");
         }
 
+        /// <summary>
+        /// Prints the update book page and lets the user enter the new title, author and price.
+        /// </summary>
+        /// <returns>A list with the new title, author and price.</returns>
         public static List<(string, string, int)> UseUpdateBookPage()
         {
             bool isNumeric = false;
@@ -60,6 +70,9 @@ namespace Bookshop.Views.AdminBooks
             return userInput;
         }
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(44, 18);
@@ -69,6 +82,9 @@ namespace Bookshop.Views.AdminBooks
             Thread.Sleep(3000);
         }
 
+        /// <summary>
+        /// Prints the failure message.
+        /// </summary>
         public static void Failure()
         {
             Console.SetCursorPosition(48, 18);

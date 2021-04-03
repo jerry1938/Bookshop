@@ -12,12 +12,18 @@ namespace Bookshop.Controllers
     {
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
+
+        /// <summary>
+        /// Handles the logic for the index page.
+        /// </summary>
         public void Index()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMenu();
             layout.ClearMainContent();
 
-            int option = menuController.Menu(Views.AdminUsers.Index.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.Index.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -38,8 +44,13 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the add user page.
+        /// </summary>
         public void AddUser()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
@@ -47,7 +58,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.AddUser.PrintAddUserPage();
 
-            int option = menuController.Menu(Views.AdminUsers.AddUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.AddUser.menuOptions);
             switch (option)
             {
                 case 0: // List users
@@ -101,8 +112,13 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the list users page.
+        /// </summary>
         public void ListUsers()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
@@ -110,7 +126,7 @@ namespace Bookshop.Controllers
                 GlobalVariables.User.Id);
             Views.AdminUsers.ListUsers.ListAllUsers(listOfUsers);
 
-            int option = menuController.Menu(Views.AdminUsers.ListUsers.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.ListUsers.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -130,14 +146,21 @@ namespace Bookshop.Controllers
             UserInfo(option, listOfUsers);
         }
 
+        /// <summary>
+        /// Handles the logic for the user infor page.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="users"></param>
         public void UserInfo(int userId, List<Webbutik.Models.User> users)
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             Views.AdminUsers.UserInfo.PrintUserInfo(userId, users);
 
-            int option = menuController.Menu(Views.AdminUsers.UserInfo.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.UserInfo.menuOptions);
             switch (option)
             {
                 case 0: // Activate user
@@ -160,14 +183,19 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the find user page.
+        /// </summary>
         public void FindUser()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             Views.AdminUsers.FindUser.PrintFindUserPage();
 
-            int option = menuController.Menu(Views.AdminUsers.FindUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -189,7 +217,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.FindUser.PrintResult(users);
 
-            option = menuController.Menu(Views.AdminUsers.FindUser.MenuOptions);
+            option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -209,8 +237,14 @@ namespace Bookshop.Controllers
             UserInfo(option, users);
         }
 
+        /// <summary>
+        ///  Handles the logic for the activate user page.
+        /// </summary>
+        /// <param name="userId"></param>
         public void ActivateUser(int userId)
         {
+            PingHelper.CheckPing();
+
             Menu menu = new Menu();
 
             layout.ClearMainContent();
@@ -219,7 +253,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.ActivateUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.ActivateUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.ActivateUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -264,8 +298,14 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the incactivate user page.
+        /// </summary>
+        /// <param name="userId"></param>
         public void InactivateUser(int userId)
         {
+            PingHelper.CheckPing();
+
             Menu menu = new Menu();
             layout.ClearMainContent();
             layout.ClearMenu();
@@ -273,7 +313,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.InactivateUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.InactivateUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.InactivateUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -318,8 +358,14 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the promote user page.
+        /// </summary>
+        /// <param name="userId"></param>
         public void PromoteUser(int userId)
         {
+            PingHelper.CheckPing();
+
             Menu menu = new Menu();
             layout.ClearMainContent();
             layout.ClearMenu();
@@ -327,7 +373,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.PromoteUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.PromoteUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.PromoteUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user
@@ -371,8 +417,14 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the demote user page.
+        /// </summary>
+        /// <param name="userId">The id of the user that should be demoted.</param>
         public void DemoteUser(int userId)
         {
+            PingHelper.CheckPing();
+
             Menu menu = new Menu();
 
             layout.ClearMainContent();
@@ -381,7 +433,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.DemoteUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.DemoteUser.MenuOptions);
+            int option = menuController.Menu(Views.AdminUsers.DemoteUser.menuOptions);
             switch (option)
             {
                 case 0: // Add user

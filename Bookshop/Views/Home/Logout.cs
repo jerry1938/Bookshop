@@ -8,6 +8,9 @@ namespace Bookshop.Views.Home
 {
     public static class Logout
     {
+        /// <summary>
+        /// Prints the confirm logout.
+        /// </summary>
         public static void ConfirmLogout()
         {
             Console.SetCursorPosition(45, 15);

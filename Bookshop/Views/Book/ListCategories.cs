@@ -9,8 +9,15 @@ namespace Bookshop.Views.Book
 {
     public static class ListCategories
     {
-        public static List<string> MenuOptions = new List<string>() { "Search", "Back" };
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Search", "Back" };
 
+        /// <summary>
+        /// Prints all categories.
+        /// </summary>
+        /// <param name="categories">A list with categories.</param>
         public static void ListAllCategories(List<Webbutik.Models.BookCategory> categories)
         {
             Console.SetCursorPosition(27, 9);

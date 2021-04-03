@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class BookInfo
     {
-        public static List<string> MenuOptions = new List<string>() { "Change amount", "Update book",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Change amount", "Update book",
             "Remove book", "Change category", "Back"};
 
+        /// <summary>
+        /// Prints the information of the book.
+        /// </summary>
         public static void PrintBookInfo()
         {
             Console.SetCursorPosition(25, 9);

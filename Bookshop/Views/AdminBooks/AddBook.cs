@@ -8,9 +8,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class AddBook
     {
-        public static List<string> MenuOptions = new List<string>() { "Edit book",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Edit book",
             "Add category", "Update category", "Delete category", "Back"};
 
+        /// <summary>
+        /// Prints the add book page.
+        /// </summary>
         public static void PrintAddBookPage()
         {
             Console.SetCursorPosition(25, 9);
@@ -23,6 +29,10 @@ namespace Bookshop.Views.AdminBooks
             Console.WriteLine("Amount:" + new string(' ', 71));
         }
 
+        /// <summary>
+        /// Uses the add book page.
+        /// </summary>
+        /// <returns>The user input for adding a new book.</returns>
         public static List<(string, string, int, int)> UseAddBookPage()
         {
             bool isNumeric = false;
@@ -58,6 +68,9 @@ namespace Bookshop.Views.AdminBooks
             return userInput;
         }
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(45, 18);
@@ -66,6 +79,9 @@ namespace Bookshop.Views.AdminBooks
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the failure message.
+        /// </summary>
         public static void Failure()
         {
             Console.SetCursorPosition(50, 18);

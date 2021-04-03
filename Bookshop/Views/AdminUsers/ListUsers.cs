@@ -8,9 +8,16 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class ListUsers
     {
-        public static List<string> MenuOptions = new List<string>() { "Add user", "Find user", 
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Add user", "Find user", 
             "Back"};
 
+        /// <summary>
+        /// Prints all users.
+        /// </summary>
+        /// <param name="listOfUsers"></param>
         public static void ListAllUsers(List<Webbutik.Models.User> listOfUsers)
         {
             Console.SetCursorPosition(27, 9);

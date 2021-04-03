@@ -1,4 +1,5 @@
-﻿using Bookshop.Views.Shared;
+﻿using Bookshop.Helpers;
+using Bookshop.Views.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,17 @@ namespace Bookshop.Controllers
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
 
+        /// <summary>
+        /// Hanles the logic for the index page.
+        /// </summary>
         public void Index()
         {
+            PingHelper.CheckPing();
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminHome.Index.MenuOptions);
+            int option = menuController.Menu(Views.AdminHome.Index.menuOptions);
             switch (option)
             {
                 case 0: // Users

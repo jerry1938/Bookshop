@@ -8,6 +8,9 @@ namespace Bookshop.Views.Book
 {
     public static class BuyBook
     {
+        /// <summary>
+        /// Prints the confirm purchase message.
+        /// </summary>
         public static void ConfirmPurchase()
         {
             Console.SetCursorPosition(49, 18);

@@ -9,6 +9,9 @@ using Webbutik;
 
 namespace Bookshop
 {
+    /// <summary>
+    /// Starts the program
+    /// </summary>
     class StartApp
     {
         WebbShopAPI api = new WebbShopAPI();

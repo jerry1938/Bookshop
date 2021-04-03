@@ -8,9 +8,16 @@ namespace Bookshop.Views.AdminStatistics
 {
     public static class BestCustomer
     {
-        public static List<string> MenuOptions = new List<string>() { "Sold items", "Money earned",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Sold items", "Money earned",
             "Back"};
 
+        /// <summary>
+        /// Prints the best customer page with the best customer.
+        /// </summary>
+        /// <param name="bestCustomer"></param>
         public static void PrintBestCustomerPage(string bestCustomer)
         {
             Console.SetCursorPosition(25, 9);

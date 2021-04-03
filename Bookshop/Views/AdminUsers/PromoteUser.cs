@@ -10,9 +10,15 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class PromoteUser
     {
-        public static List<string> MenuOptions = new List<string>() { "Add user", "List users",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Add user", "List users",
             "Find user", "Activate user", "Inactivate user", "Demote user", "Back"};
 
+        /// <summary>
+        /// Prints the confirm message.
+        /// </summary>
         public static void Confirm()
         {
             Layout layout = new Layout();
@@ -24,6 +30,10 @@ namespace Bookshop.Views.AdminUsers
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints that the user has been promoted.
+        /// </summary>
+        /// <param name="isPromoted"></param>
         public static void IsUserPromoted(bool isPromoted)
         {
             Layout layout = new Layout();

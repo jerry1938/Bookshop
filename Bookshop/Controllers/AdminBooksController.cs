@@ -13,12 +13,15 @@ namespace Bookshop.Controllers
         Layout layout = new Layout();
         MenuController menuController = new MenuController();
 
+        /// <summary>
+        /// Handles the logic for the index page.
+        /// </summary>
         public void Index()
         {
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminBooks.Index.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.Index.menuOptions);
             switch (option)
             {
                 case 0: // Add book
@@ -45,6 +48,9 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for adding a new book.
+        /// </summary>
         public void AddBook()
         {
             layout.ClearMainContent();
@@ -52,7 +58,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.AddBook.PrintAddBookPage();
 
-            int option = menuController.Menu(Views.AdminBooks.AddBook.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.AddBook.menuOptions);
             switch (option)
             {
                 case 0: // Edit book
@@ -91,6 +97,9 @@ namespace Bookshop.Controllers
             Index();
         }
 
+        /// <summary>
+        /// Handles the logic for editing a book.
+        /// </summary>
         public void EditBook()
         {
             BookComparer comparer = new BookComparer();
@@ -100,7 +109,7 @@ namespace Bookshop.Controllers
 
             Views.Book.Search.PrintSearchBar();
 
-            int option = menuController.Menu(Views.AdminBooks.EditBook.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.EditBook.menuOptions);
             switch (option)
             {
                 case 0: // Add book
@@ -141,6 +150,9 @@ namespace Bookshop.Controllers
             BookInfo();
         }
 
+        /// <summary>
+        /// Handles the logic for the information of a book.
+        /// </summary>
         public void BookInfo()
         {
             layout.ClearMainContent();
@@ -148,7 +160,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.BookInfo.PrintBookInfo();
 
-            int option = menuController.Menu(Views.AdminBooks.BookInfo.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.BookInfo.menuOptions);
             switch (option)
             {
                 case 0: // Change amount
@@ -171,6 +183,9 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for changeing the amount of a specific book.
+        /// </summary>
         public void ChangeAmount()
         {
             layout.ClearMainContent();
@@ -178,7 +193,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.ChangeAmount.PrintChangeAmountPage();
 
-            int option = menuController.Menu(Views.AdminBooks.ChangeAmount.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.ChangeAmount.menuOptions);
             switch (option)
             {
                 case 0: // Update book
@@ -204,6 +219,9 @@ namespace Bookshop.Controllers
             Index();
         }
 
+        /// <summary>
+        /// Handles the logic to update a book.
+        /// </summary>
         public void UpdateBook()
         {
             layout.ClearMainContent();
@@ -211,7 +229,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.UpdateBook.PrintUpdateBookPage();
 
-            int option = menuController.Menu(Views.AdminBooks.UpdateBook.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.UpdateBook.menuOptions);
             switch (option)
             {
                 case 0: // Change amount
@@ -249,9 +267,17 @@ namespace Bookshop.Controllers
             Index();
         }
 
+        /// <summary>
+        /// Hanldes the logic for removing a book.
+        /// </summary>
         public void RemoveBook()
         {
             Menu menu = new Menu();
+
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
 
             layout.ClearMainContent();
             layout.ClearMenu();
@@ -259,7 +285,7 @@ namespace Bookshop.Controllers
             Views.AdminBooks.RemoveBook.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminBooks.RemoveBook.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.RemoveBook.menuOptions);
             switch (option)
             {
                 case 0: // Change amount
@@ -303,15 +329,23 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic to change the category of a book.
+        /// </summary>
         public void ChangeCategory()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.ChangeCategory.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.ChangeCategory.menuOptions);
             switch (option)
             {
                 case 0: // Change amount
@@ -343,14 +377,22 @@ namespace Bookshop.Controllers
             Index();
         }
 
+        /// <summary>
+        /// Handles the logic for adding a new category.
+        /// </summary>
         public void AddCategory()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            Views.AdminBooks.AddCategory.PrintAddBookPage();
+            Views.AdminBooks.AddCategory.PrintAddCategoryPage();
 
-            int option = menuController.Menu(Views.AdminBooks.AddCategory.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.AddCategory.menuOptions);
             switch (option)
             {
                 case 0: // Add book
@@ -387,15 +429,23 @@ namespace Bookshop.Controllers
             Index();
         }
 
+        /// <summary>
+        /// Handles the logic to update a category.
+        /// </summary>
         public void UpdateCategory()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.UpdateCategory.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.UpdateCategory.menuOptions);
             switch (option)
             {
                 case 0: // Add book
@@ -429,15 +479,23 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic to delete a category if the category is not in use.
+        /// </summary>
         public void DeleteCategory()
         {
+            if (GlobalVariables.IsUserLoggedIn == true)
+            {
+                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            }
+
             layout.ClearMainContent();
             layout.ClearMenu();
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.DeleteCategory.MenuOptions);
+            int option = menuController.Menu(Views.AdminBooks.DeleteCategory.menuOptions);
             switch (option)
             {
                 case 0: // Add book

@@ -8,9 +8,16 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class UpdateCategory
     {
-        public static List<string> MenuOptions = new List<string>() { "Add book", "Edit book",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Add book", "Edit book",
             "Add category", "Delete category", "Back"};
 
+        /// <summary>
+        /// Prints the update category page and lets the user enter a new name for the category.
+        /// </summary>
+        /// <returns>The new name for the category.</returns>
         public static string UseUpdateCategoryPage()
         {
             Console.SetCursorPosition(40, 18);
@@ -23,6 +30,9 @@ namespace Bookshop.Views.AdminBooks
             return userInput;
         }
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(42, 20);

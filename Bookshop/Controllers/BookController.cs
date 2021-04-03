@@ -14,18 +14,19 @@ namespace Bookshop.Controllers
         MenuController menuController = new MenuController();
         HomeController homeController = new HomeController();
         Layout layout = new Layout();
+
+        /// <summary>
+        /// Handles the logic for the index page.
+        /// </summary>
         public void Index()
         {
-            if (GlobalVariables.IsUserLoggedIn == true)
-            {
-                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
-            }
+            PingHelper.CheckPing();
 
             layout.ClearMainContent();
             layout.ClearMenu();
 
             Views.Book.Index.PrintBooks();
-            int option = menuController.Menu(Views.Book.Index.MenuOptions);
+            int option = menuController.Menu(Views.Book.Index.menuOptions);
 
             switch (option)
             {
@@ -43,22 +44,21 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the search page.
+        /// </summary>
         public void Search()
         {
             string userInput;
             BookComparer comparer = new BookComparer();
-
-            if (GlobalVariables.IsUserLoggedIn == true)
-            {
-                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
-            }
+            PingHelper.CheckPing();
 
             layout.ClearMainContent();
             layout.ClearMenu();
 
             Views.Book.Search.PrintSearchBar();
 
-            int option = menuController.Menu(Views.Book.Search.MenuOptions);
+            int option = menuController.Menu(Views.Book.Search.menuOptions);
 
             switch (option)
             {
@@ -96,7 +96,7 @@ namespace Bookshop.Controllers
 
             Views.Book.Search.ShowSearchResult(filteredSearch);
 
-            option = menuController.Menu(Views.Book.Index.MenuOptions);
+            option = menuController.Menu(Views.Book.Index.menuOptions);
 
             switch (option)
             {
@@ -120,15 +120,12 @@ namespace Bookshop.Controllers
 
         public void BookInfo()
         {
-            if (GlobalVariables.IsUserLoggedIn == true)
-            {
-                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
-            }
+            PingHelper.CheckPing();
 
             layout.ClearMenu();
 
             Views.Book.BookInfo.PrintBookInfo(GlobalVariables.BookId);
-            int option = menuController.Menu(Views.Book.BookInfo.MenuOptions);
+            int option = menuController.Menu(Views.Book.BookInfo.menuOptions);
 
             switch (option)
             {
@@ -145,7 +142,7 @@ namespace Bookshop.Controllers
 
         public void BuyBook()
         {
-            GlobalVariables.Api.Ping(GlobalVariables.User.Id);
+            PingHelper.CheckPing();
             layout.ClearMainContent();
 
             if (GlobalVariables.User.Id > 0)
@@ -173,17 +170,14 @@ namespace Bookshop.Controllers
 
         public void Categories()
         {
-            if (GlobalVariables.IsUserLoggedIn == true)
-            {
-                GlobalVariables.Api.Ping(GlobalVariables.User.Id);
-            }
+            PingHelper.CheckPing();
 
             layout.ClearMainContent();
             layout.ClearMenu();
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
-            int option = menuController.Menu(Views.Book.ListCategories.MenuOptions);
+            int option = menuController.Menu(Views.Book.ListCategories.menuOptions);
 
             switch (option)
             {

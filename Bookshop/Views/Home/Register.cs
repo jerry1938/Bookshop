@@ -8,8 +8,14 @@ namespace Bookshop.Views.Home
 {
     class Register
     {
-        public static List<string> MenuOptions = new List<string>() { "Login", "Back" };
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Login", "Back" };
 
+        /// <summary>
+        /// Prints the register page.
+        /// </summary>
         public static void PrintRegisterPage()
         {
             Console.SetCursorPosition(38, 12);
@@ -20,6 +26,11 @@ namespace Bookshop.Views.Home
             Console.WriteLine("Confirm password:" + new string(' ', 53));
         }
 
+        /// <summary>
+        /// Prints the register page and lets the user enter the username, password and confirm the
+        /// password.
+        /// </summary>
+        /// <returns>The ussername, password and confirm password.</returns>
         public static List<string> UseRegisterPage()
         {
             List<string> userInput = new List<string>();
@@ -36,6 +47,9 @@ namespace Bookshop.Views.Home
             return userInput;
         }
 
+        /// <summary>
+        /// Prints whitespaces to remove the register message.
+        /// </summary>
         public static void RemoveRegisterMessage()
         {
             Console.SetCursorPosition(25, 18);

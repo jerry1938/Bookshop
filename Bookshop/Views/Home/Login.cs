@@ -8,8 +8,14 @@ namespace Bookshop.Views.Home
 {
     public static class Login
     {
-        public static List<string> MenuOptions = new List<string>() { "Register", "Back"};
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Register", "Back"};
 
+        /// <summary>
+        /// Prints the login page.
+        /// </summary>
         public static void PrintLoginPage()
         {
             Console.SetCursorPosition(38, 12);
@@ -18,6 +24,10 @@ namespace Bookshop.Views.Home
             Console.WriteLine("Password:" + new string(' ', 56));
         }
 
+        /// <summary>
+        /// Prints the login page and lets the user enter the username and password.
+        /// </summary>
+        /// <returns>The username and password.</returns>
         public static List<string> UseLoginPage()
         {
             List<string> userInput = new List<string>();
@@ -32,6 +42,9 @@ namespace Bookshop.Views.Home
             return userInput;
         }
 
+        /// <summary>
+        /// Prints whitespaces to remove the login message.
+        /// </summary>
         public static void RemoveLoginMessage()
         {
             Console.SetCursorPosition(33, 18);

@@ -9,9 +9,15 @@ namespace Bookshop.Views.AdminBooks
 {
     public static class RemoveBook
     {
-        public static List<string> MenuOptions = new List<string>() { "Change amount",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Change amount",
             "Update book", "Change category", "Back"};
 
+        /// <summary>
+        /// Prints the confirm message.
+        /// </summary>
         public static void Confirm()
         {
             Console.SetCursorPosition(42, 15);
@@ -20,6 +26,9 @@ namespace Bookshop.Views.AdminBooks
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the success message.
+        /// </summary>
         public static void Success()
         {
             Console.SetCursorPosition(44, 18);
@@ -29,6 +38,9 @@ namespace Bookshop.Views.AdminBooks
             Thread.Sleep(3000);
         }
 
+        /// <summary>
+        /// Prints the failure message.
+        /// </summary>
         public static void Failure()
         {
             Console.SetCursorPosition(49, 18);

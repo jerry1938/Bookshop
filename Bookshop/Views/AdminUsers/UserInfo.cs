@@ -9,9 +9,17 @@ namespace Bookshop.Views.AdminUsers
 {
     public static class UserInfo
     {
-        public static List<string> MenuOptions = new List<string>() { "Activate user",
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Activate user",
             "Inactivate user", "Promote user", "Demote user", "Back"};
 
+        /// <summary>
+        /// Prints the information about a user.
+        /// </summary>
+        /// <param name="userId">The id of the user.</param>
+        /// <param name="users">A list with users.</param>
         public static void PrintUserInfo(int userId, List<Webbutik.Models.User> users)
         {
             Webbutik.Models.User user = new Webbutik.Models.User();

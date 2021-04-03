@@ -8,6 +8,11 @@ namespace Bookshop.Views.Shared
 {
     class Menu
     {
+        /// <summary>
+        /// Prints the menu.
+        /// </summary>
+        /// <param name="options">The menu options.</param>
+        /// <param name="selectedOption">The current selected option.</param>
         public void PrintMenu(List<string> options, int selectedOption)
         {
             char prefix;
@@ -30,6 +35,10 @@ namespace Bookshop.Views.Shared
             }
         }
 
+        /// <summary>
+        /// Prints the message box.
+        /// </summary>
+        /// <param name="selectedOption">The current selected option.</param>
         public void PrintMessageBox(int selectedOption)
         {
             List<string> options = new List<string>() { "Yes", "No" };
@@ -74,6 +83,11 @@ namespace Bookshop.Views.Shared
             }
         }
 
+        /// <summary>
+        /// Prints the book list.
+        /// </summary>
+        /// <param name="bookOptions">A list with books</param>
+        /// <param name="selectedOption">The current selected option.</param>
         public void PrintBookList(List<Webbutik.Models.Book> bookOptions, int selectedOption)
         {
             char prefix;
@@ -102,6 +116,11 @@ namespace Bookshop.Views.Shared
             }
         }
 
+        /// <summary>
+        /// Prints the category list.
+        /// </summary>
+        /// <param name="categories">A list with categories.</param>
+        /// <param name="selectedOption">The current selected option.</param>
         public void PrintCategoryList(List<Webbutik.Models.BookCategory> categories, 
             int selectedOption)
         {
@@ -123,6 +142,11 @@ namespace Bookshop.Views.Shared
             }
         }
 
+        /// <summary>
+        /// Prints the user list.
+        /// </summary>
+        /// <param name="users">A list with users.</param>
+        /// <param name="selectedOption">The current selected option.</param>
         public void PrintUserList(List<Webbutik.Models.User> users, int selectedOption)
         {
             char prefix;

@@ -11,8 +11,15 @@ namespace Bookshop.Views.Book
     public static class Search
     {
         private static WebbShopAPI api = new WebbShopAPI();
-        public static List<string> MenuOptions = new List<string>() { "Categories", "Back" };
 
+        /// <summary>
+        /// The menu options.
+        /// </summary>
+        public static List<string> menuOptions = new List<string>() { "Categories", "Back" };
+
+        /// <summary>
+        /// Prints the search bar.
+        /// </summary>
         public static void PrintSearchBar()
         {
             Console.SetCursorPosition(48, 18);
@@ -22,6 +29,10 @@ namespace Bookshop.Views.Book
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints the search bar and lets the user enter a search keyword.
+        /// </summary>
+        /// <returns>All metching books, authors and categories.</returns>
         public static string UseSearchBar()
         {
             string userInput;
@@ -36,6 +47,10 @@ namespace Bookshop.Views.Book
             return userInput;
         }
 
+        /// <summary>
+        /// Prints the search result.
+        /// </summary>
+        /// <param name="books"></param>
         public static void ShowSearchResult(List<Webbutik.Models.Book> books)
         {
             Layout layout = new Layout();
