@@ -23,7 +23,7 @@ namespace Bookshop.Controllers
             layout.ClearMenu();
             layout.ClearMainContent();
 
-            int option = menuController.Menu(Views.AdminUsers.Index.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.Index.menuOptions, false);
             switch (option)
             {
                 case 0: // Add user
@@ -58,7 +58,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.AddUser.PrintAddUserPage();
 
-            int option = menuController.Menu(Views.AdminUsers.AddUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.AddUser.menuOptions, true);
             switch (option)
             {
                 case 0: // List users
@@ -126,7 +126,7 @@ namespace Bookshop.Controllers
                 GlobalVariables.User.Id);
             Views.AdminUsers.ListUsers.ListAllUsers(listOfUsers);
 
-            int option = menuController.Menu(Views.AdminUsers.ListUsers.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.ListUsers.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -160,7 +160,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.UserInfo.PrintUserInfo(userId, users);
 
-            int option = menuController.Menu(Views.AdminUsers.UserInfo.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.UserInfo.menuOptions, false);
             switch (option)
             {
                 case 0: // Activate user
@@ -195,7 +195,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.FindUser.PrintFindUserPage();
 
-            int option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -217,7 +217,7 @@ namespace Bookshop.Controllers
 
             Views.AdminUsers.FindUser.PrintResult(users);
 
-            option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions);
+            option = menuController.Menu(Views.AdminUsers.FindUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -253,7 +253,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.ActivateUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.ActivateUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.ActivateUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -313,7 +313,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.InactivateUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.InactivateUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.InactivateUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -373,7 +373,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.PromoteUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.PromoteUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.PromoteUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user
@@ -433,7 +433,7 @@ namespace Bookshop.Controllers
             Views.AdminUsers.DemoteUser.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminUsers.DemoteUser.menuOptions);
+            int option = menuController.Menu(Views.AdminUsers.DemoteUser.menuOptions, true);
             switch (option)
             {
                 case 0: // Add user

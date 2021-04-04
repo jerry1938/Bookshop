@@ -26,7 +26,7 @@ namespace Bookshop.Controllers
             layout.ClearMenu();
 
             Views.Book.Index.PrintBooks();
-            int option = menuController.Menu(Views.Book.Index.menuOptions);
+            int option = menuController.Menu(Views.Book.Index.menuOptions, false);
 
             switch (option)
             {
@@ -58,7 +58,7 @@ namespace Bookshop.Controllers
 
             Views.Book.Search.PrintSearchBar();
 
-            int option = menuController.Menu(Views.Book.Search.menuOptions);
+            int option = menuController.Menu(Views.Book.Search.menuOptions, true);
 
             switch (option)
             {
@@ -96,7 +96,7 @@ namespace Bookshop.Controllers
 
             Views.Book.Search.ShowSearchResult(filteredSearch);
 
-            option = menuController.Menu(Views.Book.Index.menuOptions);
+            option = menuController.Menu(Views.Book.Index.menuOptions, true);
 
             switch (option)
             {
@@ -118,6 +118,9 @@ namespace Bookshop.Controllers
             BookInfo();
         }
 
+        /// <summary>
+        /// Handles the logic for the book info page.
+        /// </summary>
         public void BookInfo()
         {
             PingHelper.CheckPing();
@@ -125,7 +128,7 @@ namespace Bookshop.Controllers
             layout.ClearMenu();
 
             Views.Book.BookInfo.PrintBookInfo(GlobalVariables.BookId);
-            int option = menuController.Menu(Views.Book.BookInfo.menuOptions);
+            int option = menuController.Menu(Views.Book.BookInfo.menuOptions, false);
 
             switch (option)
             {
@@ -140,6 +143,9 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the buy book page.
+        /// </summary>
         public void BuyBook()
         {
             PingHelper.CheckPing();
@@ -168,6 +174,9 @@ namespace Bookshop.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the logic for the categories page.
+        /// </summary>
         public void Categories()
         {
             PingHelper.CheckPing();
@@ -177,7 +186,7 @@ namespace Bookshop.Controllers
 
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
-            int option = menuController.Menu(Views.Book.ListCategories.menuOptions);
+            int option = menuController.Menu(Views.Book.ListCategories.menuOptions, true);
 
             switch (option)
             {

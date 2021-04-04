@@ -23,7 +23,7 @@ namespace Bookshop.Controllers
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminHome.Index.menuOptions);
+            int option = menuController.Menu(Views.AdminHome.Index.menuOptions, false);
             switch (option)
             {
                 case 0: // Users

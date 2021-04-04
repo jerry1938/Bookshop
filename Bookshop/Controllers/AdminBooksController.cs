@@ -21,7 +21,7 @@ namespace Bookshop.Controllers
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminBooks.Index.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.Index.menuOptions, false);
             switch (option)
             {
                 case 0: // Add book
@@ -58,7 +58,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.AddBook.PrintAddBookPage();
 
-            int option = menuController.Menu(Views.AdminBooks.AddBook.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.AddBook.menuOptions, true);
             switch (option)
             {
                 case 0: // Edit book
@@ -109,7 +109,7 @@ namespace Bookshop.Controllers
 
             Views.Book.Search.PrintSearchBar();
 
-            int option = menuController.Menu(Views.AdminBooks.EditBook.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.EditBook.menuOptions, true);
             switch (option)
             {
                 case 0: // Add book
@@ -160,7 +160,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.BookInfo.PrintBookInfo();
 
-            int option = menuController.Menu(Views.AdminBooks.BookInfo.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.BookInfo.menuOptions, false);
             switch (option)
             {
                 case 0: // Change amount
@@ -193,7 +193,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.ChangeAmount.PrintChangeAmountPage();
 
-            int option = menuController.Menu(Views.AdminBooks.ChangeAmount.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.ChangeAmount.menuOptions, true);
             switch (option)
             {
                 case 0: // Update book
@@ -229,7 +229,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.UpdateBook.PrintUpdateBookPage();
 
-            int option = menuController.Menu(Views.AdminBooks.UpdateBook.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.UpdateBook.menuOptions, true);
             switch (option)
             {
                 case 0: // Change amount
@@ -285,7 +285,7 @@ namespace Bookshop.Controllers
             Views.AdminBooks.RemoveBook.Confirm();
             menu.PrintMessageBox(1);
 
-            int option = menuController.Menu(Views.AdminBooks.RemoveBook.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.RemoveBook.menuOptions, true);
             switch (option)
             {
                 case 0: // Change amount
@@ -345,7 +345,7 @@ namespace Bookshop.Controllers
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.ChangeCategory.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.ChangeCategory.menuOptions, true);
             switch (option)
             {
                 case 0: // Change amount
@@ -392,7 +392,7 @@ namespace Bookshop.Controllers
 
             Views.AdminBooks.AddCategory.PrintAddCategoryPage();
 
-            int option = menuController.Menu(Views.AdminBooks.AddCategory.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.AddCategory.menuOptions, true);
             switch (option)
             {
                 case 0: // Add book
@@ -445,7 +445,7 @@ namespace Bookshop.Controllers
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.UpdateCategory.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.UpdateCategory.menuOptions, true);
             switch (option)
             {
                 case 0: // Add book
@@ -477,6 +477,8 @@ namespace Bookshop.Controllers
             {
                 Views.AdminBooks.UpdateCategory.Success();
             }
+
+            Index();
         }
 
         /// <summary>
@@ -495,7 +497,7 @@ namespace Bookshop.Controllers
             List<Webbutik.Models.BookCategory> categories = GlobalVariables.Api.GetCategories();
             Views.Book.ListCategories.ListAllCategories(categories);
 
-            int option = menuController.Menu(Views.AdminBooks.DeleteCategory.menuOptions);
+            int option = menuController.Menu(Views.AdminBooks.DeleteCategory.menuOptions, true);
             switch (option)
             {
                 case 0: // Add book

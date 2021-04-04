@@ -23,7 +23,7 @@ namespace Bookshop.Controllers
             layout.ClearMainContent();
             layout.ClearMenu();
 
-            int option = menuController.Menu(Views.AdminStatistics.Index.menuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.Index.menuOptions, false);
             switch (option)
             {
                 case 0: // Sold items
@@ -57,7 +57,7 @@ namespace Bookshop.Controllers
             var soldItems = GlobalVariables.Api.SoldItems(GlobalVariables.User.Id);
             Views.AdminStatistics.SoldItems.PrintSoldItems(soldItems);
 
-            int option = menuController.Menu(Views.AdminStatistics.SoldItems.menuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.SoldItems.menuOptions, false);
             switch (option)
             {
                 case 0: // Best customer
@@ -87,7 +87,7 @@ namespace Bookshop.Controllers
             string bestCustomer = GlobalVariables.Api.BestCustomer(GlobalVariables.User.Id);
             Views.AdminStatistics.BestCustomer.PrintBestCustomerPage(bestCustomer);
 
-            int option = menuController.Menu(Views.AdminStatistics.BestCustomer.menuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.BestCustomer.menuOptions, false);
             switch (option)
             {
                 case 0: // Sold items
@@ -117,7 +117,7 @@ namespace Bookshop.Controllers
             int moneyEarned = GlobalVariables.Api.MoneyEarned(GlobalVariables.User.Id);
             Views.AdminStatistics.MoneyEarned.PrintMoneyEarnedPage(moneyEarned);
 
-            int option = menuController.Menu(Views.AdminStatistics.MoneyEarned.menuOptions);
+            int option = menuController.Menu(Views.AdminStatistics.MoneyEarned.menuOptions, false);
             switch (option)
             {
                 case 0: // Sold items

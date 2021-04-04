@@ -25,7 +25,7 @@ namespace Bookshop.Controllers
 
             if (GlobalVariables.IsUserLoggedIn == true)
             {
-                int option = menuController.Menu(Views.Home.Index.menuOptionsLoggedIn);
+                int option = menuController.Menu(Views.Home.Index.menuOptionsLoggedIn, false);
                 switch (option)
                 {
                     case 0: // Logout
@@ -41,7 +41,7 @@ namespace Bookshop.Controllers
             }
             else
             {
-                int option = menuController.Menu(Views.Home.Index.menuOptions);
+                int option = menuController.Menu(Views.Home.Index.menuOptions, false);
 
                 switch (option)
                 {
@@ -73,7 +73,7 @@ namespace Bookshop.Controllers
 
             Views.Home.Login.PrintLoginPage();
 
-            int option = menuController.Menu(Views.Home.Login.menuOptions);
+            int option = menuController.Menu(Views.Home.Login.menuOptions, true);
 
             switch (option)
             {
@@ -127,7 +127,7 @@ namespace Bookshop.Controllers
 
             Views.Home.Register.PrintRegisterPage();
 
-            int option = menuController.Menu(Views.Home.Register.menuOptions);
+            int option = menuController.Menu(Views.Home.Register.menuOptions, true);
 
             switch (option)
             {

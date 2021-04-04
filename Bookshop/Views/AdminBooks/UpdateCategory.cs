@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bookshop.Views.AdminBooks
@@ -39,6 +40,7 @@ namespace Bookshop.Views.AdminBooks
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The category has been successfully updated");
             Console.ResetColor();
+            Thread.Sleep(3000);
         }
     }
 }

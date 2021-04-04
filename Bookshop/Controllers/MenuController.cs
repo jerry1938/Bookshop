@@ -17,7 +17,7 @@ namespace Bookshop.Controllers
         /// </summary>
         /// <param name="options">The options for the menu.</param>
         /// <returns>The selected option.</returns>
-        public int Menu(List<string> options)
+        public int Menu(List<string> options, bool useRightArrow)
         {
             int selectedOption = 0;
             ConsoleKeyInfo pressedKey;
@@ -50,7 +50,10 @@ namespace Bookshop.Controllers
                         }
                         break;
                     case ConsoleKey.RightArrow:
-                        selectedOption = 99;
+                        if (useRightArrow == true)
+                        {
+                            selectedOption = 99;
+                        }
                         break;
                 }
 
